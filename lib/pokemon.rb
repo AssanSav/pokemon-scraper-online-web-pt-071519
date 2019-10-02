@@ -9,7 +9,8 @@ class Pokemon
   end
   
   def self.save(name, type, db)
-    db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
+    sql = "INSERT INTO pokemon (name, type) VALUES (?, ?)"
+    db.execute(sql, name, type)
   end
   
   def self.find(uniq_id, db) 
