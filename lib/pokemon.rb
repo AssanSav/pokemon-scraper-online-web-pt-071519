@@ -14,7 +14,8 @@ class Pokemon
   end
   
   def self.find(uniq_id, db) 
-    r = db.execute("SELECT * FROM pokemon WHERE id = ?", uniq_id).first 
+   sql = "SELECT * FROM pokemon WHERE id = ?"
+   r = db.execute(sql, uniq_id).first
     pokemon = Pokemon.new(id: r[0], name: r[1],type: r[2], db: db)
   end
 end
